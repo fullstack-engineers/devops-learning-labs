@@ -1,0 +1,5 @@
+Linux is important for DevOps.
+DevOps engineers use Linux servers.
+Docker containers often run on Linux.
+Logs help engineers debug production issues.
+Git helps track infrastructure and application changes.
