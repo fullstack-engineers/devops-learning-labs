@@ -1,0 +1,9 @@
+pwd = show current directory
+ls = list files and folders
+cd = change directory
+mkdir = create folder
+touch = create file
+cat = show file content
+nano = edit file
+clear = clear terminal screen
+history = show command history
