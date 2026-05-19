@@ -1,0 +1,8 @@
+INFO Application started
+INFO Database connected
+WARNING Disk space is getting low
+INFO User login successful
+ERROR Failed to connect to payment service
+INFO Retry started
+ERROR Payment service timeout
+INFO Application still running
