@@ -1,0 +1,8 @@
+services:
+  web:
+    image: nginx:latest
+    container_name: compose-nginx
+    ports:
+      - "8083:80"
+    volumes:
+      - ./website:/usr/share/nginx/html
