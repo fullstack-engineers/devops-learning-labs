@@ -1,0 +1,59 @@
+=================================
+ Server Health Check Report
+=================================
+
+Date: Wed May 20 12:46:14 EDT 2026
+User: tomi
+Hostname: DESKTOP-KEQJU4Q
+
+===== Uptime =====
+ 12:46:14 up  1:41,  1 user,  load average: 0.01, 0.01, 0.00
+
+===== Disk Usage =====
+Filesystem      Size  Used Avail Use% Mounted on
+none            7.8G     0  7.8G   0% /usr/lib/modules/6.6.114.1-microsoft-standard-WSL2
+none            7.8G  4.0K  7.8G   1% /mnt/wsl
+drivers         488G   69G  420G  14% /usr/lib/wsl/drivers
+/dev/sdd       1007G  2.8G  953G   1% /
+none            7.8G   44K  7.8G   1% /mnt/wslg
+none            7.8G     0  7.8G   0% /usr/lib/wsl/lib
+rootfs          7.8G  2.8M  7.8G   1% /init
+none            7.8G  600K  7.8G   1% /run
+none            7.8G     0  7.8G   0% /run/lock
+none            7.8G     0  7.8G   0% /run/shm
+none            7.8G   80K  7.8G   1% /mnt/wslg/versions.txt
+none            7.8G   80K  7.8G   1% /mnt/wslg/doc
+C:\             488G   69G  420G  14% /mnt/c
+D:\             444G  7.4G  436G   2% /mnt/d
+E:\             200G  100M  200G   1% /mnt/e
+F:\             277G   37G  241G  14% /mnt/f
+tmpfs           1.6G   20K  1.6G   1% /run/user/1000
+
+===== Memory Usage =====
+               total        used        free      shared  buff/cache   available
+Mem:           15831         698       14628           3         713       15133
+Swap:           4096           0        4096
+
+===== Nginx Status =====
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-05-20 11:00:32 EDT; 1h 45min ago
+       Docs: man:nginx(8)
+    Process: 305 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 339 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 340 (nginx)
+      Tasks: 33 (limit: 18986)
+     Memory: 23.2M (peak: 27.1M)
+        CPU: 58ms
+
+===== Recent Nginx Access Logs =====
+127.0.0.1 - - [20/May/2026:11:42:20 -0400] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+127.0.0.1 - - [20/May/2026:11:42:21 -0400] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+127.0.0.1 - - [20/May/2026:11:42:21 -0400] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+127.0.0.1 - - [20/May/2026:11:42:22 -0400] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+127.0.0.1 - - [20/May/2026:11:42:22 -0400] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+
+===== Recent Nginx Error Logs =====
+2026/05/19 11:54:00 [notice] 1369#1369: using inherited sockets from "5;6;"
+
+Health check completed.
