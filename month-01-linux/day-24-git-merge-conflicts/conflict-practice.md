@@ -1,5 +1,5 @@
 # Git Conflict Practice
 
-Environment: development
-Version: 1.0
-Status: stable
+Environment: staging
+Version: 1.1
+Status: testing from feature branch
