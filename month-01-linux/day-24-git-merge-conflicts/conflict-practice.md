@@ -1,5 +1,5 @@
 # Git Conflict Practice
 
-Environment: development
+Environment: production
 Version: 1.0
-Status: stable
+Status: stable from main branch
