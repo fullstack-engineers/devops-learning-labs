@@ -1,7 +1,5 @@
-
-
 # Git Conflict Practice
 
-Environment: production
-Version: 1.1
-Status: merged and resolved
+Environment: development
+Version: 1.0
+Status: stable
