@@ -1,0 +1,25 @@
+name: First CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print hello message
+        run: echo "Hello from GitHub Actions"
+
+      - name: Show current directory
+        run: pwd
+
+      - name: List files
+        run: ls -la
+
+      - name: Show system info
+        run: |
+          whoami
+          uname -a
