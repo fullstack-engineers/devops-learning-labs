@@ -1,0 +1,21 @@
+name: Bash Check CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  bash-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Bash syntax
+        run: bash -n month-02-git-github-cicd/day-04-github-actions-bash-check/health-check.sh
+
+      - name: Run Bash script
+        run: bash month-02-git-github-cicd/day-04-github-actions-bash-check/health-check.sh
