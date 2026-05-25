@@ -1,0 +1,8 @@
+services:
+  web:
+    image: nginx:latest
+    container_name: review-compose-nginx
+    ports:
+      - "8093:80"
+    volumes:
+      - ./website:/usr/share/nginx/html
