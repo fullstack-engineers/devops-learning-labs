@@ -1,0 +1,30 @@
+name: Environment Variables CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  APP_NAME: DevOps Learning Lab
+  ENVIRONMENT: ci
+
+jobs:
+  env-check:
+    runs-on: ubuntu-latest
+
+    env:
+      DEPLOY_TARGET: github-actions-runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Bash syntax
+        run: bash -n month-02-git-github-cicd/day-10-github-actions-env/env-check.sh
+
+      - name: Run environment check
+        env:
+          CI_STATUS: running
+        run: bash month-02-git-github-cicd/day-10-github-actions-env/env-check.sh
