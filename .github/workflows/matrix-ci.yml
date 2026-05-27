@@ -1,0 +1,29 @@
+name: Matrix CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  node-matrix-check:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Check Node and NPM versions
+        run: |
+          chmod +x month-02-git-github-cicd/day-12-github-actions-matrix/matrix-check.sh
+          bash month-02-git-github-cicd/day-12-github-actions-matrix/matrix-check.sh
