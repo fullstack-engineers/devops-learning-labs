@@ -1,0 +1,39 @@
+name: Mini CI Project
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  mini-ci:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18, 20]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Check Bash syntax
+        run: bash -n month-02-git-github-cicd/day-13-mini-ci-project/ci-project-check.sh
+
+      - name: Run CI project script
+        run: |
+          chmod +x month-02-git-github-cicd/day-13-mini-ci-project/ci-project-check.sh
+          cd month-02-git-github-cicd/day-13-mini-ci-project
+          ./ci-project-check.sh
+
+      - name: Upload mini CI report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mini-ci-report-node-${{ matrix.node-version }}
+          path: month-02-git-github-cicd/day-13-mini-ci-project/reports/mini-ci-report.txt
