@@ -1,0 +1,20 @@
+name: Pull Request CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Bash syntax
+        run: bash -n month-02-git-github-cicd/day-08-pr-ci/pr-check.sh
+
+      - name: Run PR check script
+        run: bash month-02-git-github-cicd/day-08-pr-ci/pr-check.sh
