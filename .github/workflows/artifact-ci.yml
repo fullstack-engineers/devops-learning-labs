@@ -1,0 +1,27 @@
+name: Artifact CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  generate-artifact:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run report script
+        run: |
+          chmod +x month-02-git-github-cicd/day-11-github-actions-artifacts/generate-report.sh
+          cd month-02-git-github-cicd/day-11-github-actions-artifacts
+          ./generate-report.sh
+
+      - name: Upload CI report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-report
+          path: month-02-git-github-cicd/day-11-github-actions-artifacts/reports/ci-report.txt
