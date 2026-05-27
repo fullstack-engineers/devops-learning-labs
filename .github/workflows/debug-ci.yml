@@ -1,0 +1,17 @@
+name: Debug CI Practice
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  debug-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check broken Bash script syntax
+        run: bash -n month-02-git-github-cicd/day-09-github-actions-debugging/broken-check.sh
