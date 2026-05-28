@@ -1,0 +1,18 @@
+name: Compose Validation CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  compose-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Docker Compose file
+        run: docker compose -f month-02-git-github-cicd/day-18-compose-validation/docker-compose.yml config
