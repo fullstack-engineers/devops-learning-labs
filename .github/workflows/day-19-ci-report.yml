@@ -1,0 +1,30 @@
+name: Day 19 CI Report Artifact
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  ci-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check report script syntax
+        run: bash -n month-02-git-github-cicd/day-19-ci-reports-artifacts/ci-report.sh
+
+      - name: Run CI report script
+        run: |
+          chmod +x month-02-git-github-cicd/day-19-ci-reports-artifacts/ci-report.sh
+          cd month-02-git-github-cicd/day-19-ci-reports-artifacts
+          ./ci-report.sh
+
+      - name: Upload Day 19 CI report
+        uses: actions/upload-artifact@v4
+        with:
+          name: day-19-ci-report
+          path: month-02-git-github-cicd/day-19-ci-reports-artifacts/reports/day-19-ci-report.txt
