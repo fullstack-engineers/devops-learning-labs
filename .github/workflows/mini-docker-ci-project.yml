@@ -1,0 +1,42 @@
+name: Mini Docker CI Project
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  mini-docker-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Docker Compose file
+        run: docker compose -f month-02-git-github-cicd/day-20-mini-docker-ci-project/docker-compose.yml config
+
+      - name: Start app with Docker Compose
+        run: docker compose -f month-02-git-github-cicd/day-20-mini-docker-ci-project/docker-compose.yml up -d --build
+
+      - name: Test web app
+        run: |
+          sleep 8
+          curl http://localhost:8101
+
+      - name: Generate CI report
+        run: |
+          chmod +x month-02-git-github-cicd/day-20-mini-docker-ci-project/generate-ci-report.sh
+          cd month-02-git-github-cicd/day-20-mini-docker-ci-project
+          ./generate-ci-report.sh
+
+      - name: Upload CI report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mini-docker-ci-report
+          path: month-02-git-github-cicd/day-20-mini-docker-ci-project/reports/mini-docker-ci-report.txt
+
+      - name: Stop app
+        if: always()
+        run: docker compose -f month-02-git-github-cicd/day-20-mini-docker-ci-project/docker-compose.yml down

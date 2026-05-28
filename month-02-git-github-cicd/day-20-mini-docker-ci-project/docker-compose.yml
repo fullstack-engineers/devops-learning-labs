@@ -1,0 +1,6 @@
+services:
+  web:
+    build: .
+    container_name: mini-docker-ci-web
+    ports:
+      - "8101:80"
