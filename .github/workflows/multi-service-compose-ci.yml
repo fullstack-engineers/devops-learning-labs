@@ -1,0 +1,33 @@
+name: Multi-Service Compose CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  multi-service-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Docker Compose file
+        run: docker compose -f month-02-git-github-cicd/day-17-multi-service-compose/docker-compose.yml config
+
+      - name: Start services
+        run: docker compose -f month-02-git-github-cicd/day-17-multi-service-compose/docker-compose.yml up -d --build
+
+      - name: Test web service
+        run: |
+          sleep 8
+          curl http://localhost:8099
+
+      - name: Test API service
+        run: curl http://localhost:5000
+
+      - name: Stop services
+        if: always()
+        run: docker compose -f month-02-git-github-cicd/day-17-multi-service-compose/docker-compose.yml down
