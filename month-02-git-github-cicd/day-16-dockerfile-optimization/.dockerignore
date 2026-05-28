@@ -1,0 +1,7 @@
+logs/
+temp/
+node_modules/
+*.log
+*.tmp
+.git
+.github
