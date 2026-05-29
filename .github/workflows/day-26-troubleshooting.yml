@@ -1,0 +1,20 @@
+name: Day 26 Troubleshooting CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  troubleshooting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Bash syntax
+        run: bash -n month-02-git-github-cicd/day-26-cicd-troubleshooting/broken-deploy-check.sh
+
+      - name: Run deployment check
+        run: bash month-02-git-github-cicd/day-26-cicd-troubleshooting/broken-deploy-check.sh
