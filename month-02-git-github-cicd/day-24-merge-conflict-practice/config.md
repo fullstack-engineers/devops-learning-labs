@@ -1,5 +1,5 @@
 # App Config
 
-Environment: development
-Version: 1.0
-Status: stable
+Environment: staging		
+Version: 1.1
+Status: changed frim feature branch
