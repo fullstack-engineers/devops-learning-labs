@@ -1,5 +1,5 @@
 # App Config
 
-Environment: development
+Environment: production		
 Version: 1.0
-Status: stable
+Status: changed from main branch
