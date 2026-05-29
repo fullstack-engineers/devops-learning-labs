@@ -1,0 +1,6 @@
+services:
+  web:
+    build: .
+    container_name: cicd-project-web
+    ports:
+      - "8102:80"
