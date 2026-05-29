@@ -1,0 +1,48 @@
+name: Day 23 Build and Test CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check health script syntax
+        run: bash -n month-02-git-github-cicd/day-22-cicd-project-structure/scripts/health-check.sh
+
+      - name: Check report script syntax
+        run: bash -n month-02-git-github-cicd/day-22-cicd-project-structure/scripts/generate-report.sh
+
+      - name: Validate Docker Compose
+        run: docker compose -f month-02-git-github-cicd/day-22-cicd-project-structure/docker-compose.yml config
+
+      - name: Start app
+        run: docker compose -f month-02-git-github-cicd/day-22-cicd-project-structure/docker-compose.yml up -d --build
+
+      - name: Test app
+        run: |
+          sleep 8
+          curl http://localhost:8102
+
+      - name: Generate report
+        run: |
+          cd month-02-git-github-cicd/day-22-cicd-project-structure
+          chmod +x scripts/generate-report.sh
+          ./scripts/generate-report.sh
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: day-23-build-test-report
+          path: month-02-git-github-cicd/day-22-cicd-project-structure/reports/project-report.txt
+
+      - name: Stop app
+        if: always()
+        run: docker compose -f month-02-git-github-cicd/day-22-cicd-project-structure/docker-compose.yml down
