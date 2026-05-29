@@ -1,0 +1,20 @@
+name: Deployment Simulation CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  deploy-sim:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run deployment simulation
+        run: |
+          chmod +x month-02-git-github-cicd/day-25-deployment-simulation/deploy-sim.sh
+          ./month-02-git-github-cicd/day-25-deployment-simulation/deploy-sim.sh
