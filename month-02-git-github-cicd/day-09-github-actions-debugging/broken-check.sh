@@ -1,7 +1,11 @@
 #!/bin/bash
 
-echo "Starting broken CI check"
+echo "Starting fixed CI check"
 
-if [ "$USER" = "runner" ]
-  echo "This line is missing then"
+if [ "$USER" = "runner" ]; then
+  echo "Running inside GitHub Actions runner"
+else
+  echo "Running outside GitHub Actions runner"
 fi
+
+echo "CI check completed successfully."
